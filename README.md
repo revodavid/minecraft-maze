@@ -6,6 +6,3 @@ automatically. Start with the `mazebot.R` script, which calls functions
 defined by the other scripts.
 
 Makes use of the [miner](https://github.com/ropenscilabs/miner) package.
-
-
-
