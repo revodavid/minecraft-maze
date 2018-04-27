@@ -9,7 +9,7 @@ library(miner)
 source("genmaze.R")   # functions for generating a maze
 source("solvemaze.R") # functions to build a maze in the world, and solve it
 
-## Launch the Spigot server with RaspberryJuice pl
+## First, launch a Spigot server with RaspberryJuice plugin
 ## For instructions, see: 
 ## https://ropenscilabs.github.io/miner_book/installation-and-configuration.html#docker
 
@@ -17,7 +17,7 @@ source("solvemaze.R") # functions to build a maze in the world, and solve it
 ## This is the same IP you will use to log into 
 ## a multiplayer server using Minecraft (Java edition)
 
-MCserverIP <- "52.170.156.222"
+MCserverIP <- "52.170.156.222" # use YOUR IP address here
 
 ## A function to connect to the server an print a message to confirm
 ## Minecraft disconnects every now and again, so you might need 
@@ -28,7 +28,8 @@ rc <- function(msg=TRUE) {
  if(msg) chatPost("Connected from R")
 }
 
-## connect to server
+## Launch Minecraft, and join the multiplayer server using the IP address
+## Now connect to the server from R
 rc()
 
 ## Get a player ID. Works best if there's only one player in the game,
