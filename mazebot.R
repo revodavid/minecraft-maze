@@ -38,12 +38,12 @@ if(length(id)>1) warning("Multiple players in instance")
 id <- id[1]
 
 ## Maze dimensions (we'll create a square maze)
-mazeSize <- 10
+mazeSize <- 8
 
 ## using the functions in genmaze.R:
 m <- print_maze(make_maze(mazeSize,mazeSize), print=FALSE)
 nmaze <- ncol(m) # dimensions
-m[nmaze,nmaze-1] <- "!" ## end of the maze. We'll place a torch here.
+m[nmaze,nmaze-1] <- "!" ## end of the maze. We'll place the exit here.
 
 ## we will place the maze to the southeast of the player, 3 blocks away
 ## works best in a fairly flat area
