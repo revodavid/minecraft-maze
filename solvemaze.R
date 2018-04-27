@@ -91,23 +91,23 @@ choices <- function(id, d) {
 ## Look for the object marking the end of the maze
 ## Move the player to the beginning of the maze first!
 solveMaze <- function(id) {
+ ## maze will be solved when an id_exit block is near the player
+ id_exit=find_item("Brick Slab")[1,"id"]
  solved <- FALSE
+    
  botheading <- playerDir(id)
  
  while (!solved) {
-  moves <- choices(id, botheading)
-  code <- sum(c(4, 2, 1, 0)[moves])
+  moves <- choices(id, botheading) 
+  code <- sum(c(4, 2, 1, 0)[moves]) ## check ahead, left and right
+  ## turn the player in the direction of the next passage to explore
   botheading <- switch(
    as.character(code),
-   "0" = rotateLeft(rotateLeft(botheading)),
-   #blocked Left, Ahead, Right
-   "1" = rotateRight(botheading),
-   #blocked left, ahead
-   "2" = botheading,
-   #blocked left, right
-   "3" = botheading,
-   #blocked left
-   rotateLeft(botheading)
+   "0" = rotateLeft(rotateLeft(botheading)), #blocked Left, Ahead, Right: turn around
+   "1" = rotateRight(botheading), #blocked left, ahead: go right
+   "2" = botheading,  #blocked left, right: go straight
+   "3" = botheading,  #blocked left: go straigh
+   rotateLeft(botheading) # all other situations, passage on left
   )
   playerStep(id, botheading)
   solved <- blockNear(id, botheading) == id_exit ||
