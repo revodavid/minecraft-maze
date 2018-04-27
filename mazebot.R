@@ -19,7 +19,9 @@ source("solvemaze.R") # functions to build a maze in the world, and solve it
 
 MCserverIP <- "52.170.156.222" # use YOUR IP address here
 
-## A function to connect to the server an print a message to confirm
+## Launch Minecraft now, and join the multiplayer server using its IP address.
+
+## A function to connect to the server and print a message to confirm.
 ## Minecraft disconnects every now and again, so you might need 
 ## to call it again later if you get errors.
 rc <- function(msg=TRUE) {
@@ -28,7 +30,6 @@ rc <- function(msg=TRUE) {
  if(msg) chatPost("Connected from R")
 }
 
-## Launch Minecraft, and join the multiplayer server using the IP address
 ## Now connect to the server from R
 rc()
 
